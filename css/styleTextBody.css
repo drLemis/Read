@@ -67,7 +67,8 @@ sup {
 .tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 0.05em dotted black; /* If you want dots under the hoverable text */
+    border-bottom: 0.05em dotted; /* If you want dots under the hoverable text */
+    border-color: black;
 }
 
 /* Tooltip text */

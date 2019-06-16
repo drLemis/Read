@@ -1,9 +1,9 @@
 #main {
-    color: #000000;
+    color: #222222;
 }
 
 body {
-    background: #F9EADE;
+    background: #F3DECD;
 }
 
 hr {
@@ -11,12 +11,25 @@ hr {
 }
 
 sup {
-    color:blue;
+    color:#0000FF;
+}
+
+.tooltip {
+    border-color: #0000FF;
+}
+
+.tooltip .tooltipText {
+    background-color: #030303;
+    color: #F3DECD;
+}
+
+.tooltip .tooltipText::after {
+    border-color: #030303 transparent transparent transparent;
 }
 
 .textBodyHeaderNav {
-    color: #603F89;
-    background-color: #F3DECD;
+    color: #F3DECD ;
+    background-color: #74777E ;
 }
 
 .textBodyHeaderNav:hover {

@@ -11,16 +11,29 @@ hr {
 }
 
 sup {
-    color:blue;
+    color:#0000FF;
+}
+
+.tooltip {
+    border-color: #0000FF;
+}
+
+.tooltip .tooltipText {
+    background-color: #030303;
+    color: #E8E5E7;
+}
+
+.tooltip .tooltipText::after {
+    border-color: #030303 transparent transparent transparent;
 }
 
 .textBodyHeaderNav {
-    color: #C34A36;
-    background-color: #BCB3B4;
+    color: #E8E5E7;
+    background-color: #74777E ;
 }
 
 .textBodyHeaderNav:hover {
-    color: #BCB3B4;
+    color: #E8E5E7;
     background-color: #C34A36
 }
 
