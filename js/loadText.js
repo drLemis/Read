@@ -3,35 +3,37 @@ var partStyle = "";
 
 var partList = [];
 
-function changePart(partDeta) {
-    partIndex += partDeta;
+function changePart(partDelta) {
+    partIndex += partDelta;
 
     if (partIndex < 0)
         partIndex = 0;
     else if (partIndex > [partList.length - 1])
         partIndex = partList.length - 1;
 
-    var partIndexNew = partIndex;
-    var partStyleNew = "";
+    if (partList[partIndex]) {
+        var partIndexNew = partIndex;
+        var partStyleNew = "";
 
-    //Точная ссылка на главу
-    if (partList[partIndex] && partList[partIndex].length > 1)
-        partIndexNew = partList[partIndex][1];
+        //Точная ссылка на главу
+        if (partList[partIndex].length > 1)
+            partIndexNew = partList[partIndex][0];
 
-    //Особый стиль главы
-    if (partList[partIndex] && partList[partIndex].length > 2)
-        partStyleNew = partList[partIndex][2];
+        //Особый стиль главы
+        if (partList[partIndex].length > 2)
+            partStyleNew = partList[partIndex][2];
 
-    fetch("https://raw.githubusercontent.com/drLemis/Read/master/text/" + partIndexNew + ".html")
-        .then(function (response) {
-            response.text().then(function (text) {
-                document.getElementsByClassName("textBodyText")[0].innerHTML = text;
-                document.getElementsByClassName("textBodyHeaderName")[0].innerHTML = partList[partIndex][0];
+        fetch("https://raw.githubusercontent.com/drLemis/Read/master/text/" + partIndexNew + ".html")
+            .then(function (response) {
+                response.text().then(function (text) {
+                    document.getElementsByClassName("textBodyText")[0].innerHTML = text;
+                    document.getElementsByClassName("textBodyHeaderName")[0].innerHTML = partList[partIndex][1];
 
-                if (partStyleNew != partStyle)
-                    changeStyle(partStyleNew);
+                    if (partStyleNew != partStyle)
+                        changeStyle(partStyleNew);
+                });
             });
-        });
+    }
 }
 
 function getPartList() {
@@ -41,6 +43,14 @@ function getPartList() {
                 var parts = text.split("\n");
                 parts.forEach(part => {
                     partList.push(part.split("@"));
+
+                    if (partList.length > 1 && partList[partList.length - 1].length < 2)
+                        partList[partList.length - 1].push("");
+
+                    if (partList.length > 1 && partList[partList.length - 1].length < 3)
+                        partList[partList.length - 1].push(partList[partList.length - 2][2]);
+                    else if (partList[partList.length - 1].length < 3)
+                        partList[partList.length - 1].push("");
                 });
 
                 changePart(0);
