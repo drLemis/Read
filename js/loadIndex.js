@@ -32,19 +32,20 @@ function getPartList() {
                             result += "<li " + eOnClick + " > " + eText + " </li>"
                         } else {
                             var params = part.split("#");
+                            console.log(params)
 
                             var eStyle = "";
 
                             if (params.length > 1) {
-                                var eColorBack = "#" + params[0]
-                                var eColorText = "#" + params[1]
+                                var eColorBack = "#" + params[1]
+                                var eColorText = "#" + params[2]
                                 eStyle = "style='background-color:" + eColorBack + ";color:" + eColorText + ";'"
                             }
 
                             if (partList.length > 0) {
-                                result += "</ul></div><div " + eStyle + ">" + part.trim() + "<ul>"
+                                result += "</ul></div><div " + eStyle + ">" + params[0].trim() + "<ul>"
                             } else {
-                                result += "<div " + eStyle + ">" + part.trim() + "<ul>"
+                                result += "<div " + eStyle + ">" + params[0].trim() + "<ul>"
                             }
                         }
                     }
