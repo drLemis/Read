@@ -70,6 +70,11 @@ sup {
     overflow-wrap: break-word;
 }
 
+.textBodyText {
+    white-space: pre-wrap;
+    padding: 50px 0; 
+}
+
 /* Tooltip container */
 .tooltip {
     position: relative;

@@ -26,7 +26,7 @@ function changePart(partDelta) {
         fetch("https://raw.githubusercontent.com/drLemis/Read/master/text/" + partIndexNew + ".html")
             .then(function (response) {
                 response.text().then(function (text) {
-                    document.getElementsByClassName("textBodyText")[0].innerHTML = text;
+                    document.getElementsByClassName("textBodyText")[0].innerHTML = "\t"+text.split("\n").join("\n\t");
                     document.getElementsByClassName("textBodyHeaderName")[0].innerHTML = partList[partIndex][1];
 
                     if (partStyleNew != partStyle)
