@@ -30,7 +30,7 @@ function getPartList() {
                             var eText = partList[partList.length - 1][1];
 
                             result += "<li " + eOnClick + " > " + eText + " </li>"
-                        } else {
+                        } else if (part.includes("#")){
                             var params = part.split("#");
                             console.log(params)
 
