@@ -1,0 +1,35 @@
+/* #F9EADE */
+/* #979F89 */
+/* #BCB3B4 */
+/* #858087 */
+/* #717B71 */
+
+#main {
+    color: #000000;
+}
+
+body {
+    background: #F9EADE;
+}
+
+hr {
+    border-color:#603F89;
+}
+
+sup {
+    color:blue;
+}
+
+.textBodyHeaderNav {
+    color: #603F89;
+    background-color: #F3DECD;
+}
+
+.textBodyHeaderNav:hover {
+    color: #F3DECD;
+    background-color: #603F89
+}
+
+.textInfoAnnotation {
+    color: #74777E;
+}

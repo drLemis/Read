@@ -1,0 +1,97 @@
+@font-face {
+    font-family: 'Helvetica Neue Cyr Medium';
+    src: url('../font/HelveticaNeueCyr-Medium.eot');
+    src: url('../font/HelveticaNeueCyr-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../font/HelveticaNeueCyr-Medium.woff') format('woff'),
+        url('../font/HelveticaNeueCyr-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+sup {
+    cursor: help;
+}
+
+.textBodyHeader {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.textBodyHeaderMain {
+    flex: 40;
+    display: block;
+}
+
+.textBodyHeaderDate {
+    font-size: 75%;
+}
+
+.textBodyHeaderName {
+    font-size: 150%;
+}
+
+.textBodyHeaderNav {
+    font-size: 100%;
+    border-radius: 50px;
+    margin: 5px;
+    padding: 10px;
+    display: inline-flex;
+    align-items: center;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: 0.25s;
+    overflow-wrap: break-word;
+    vertical-align: middle;
+}
+
+.textBodyHeaderNavLabel {
+    color: inherit;
+    padding: 3px;
+    pointer-events: none;
+    border-radius: 8px;
+    overflow-wrap: break-word;
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 0.05em dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltipText {
+    visibility: hidden;
+    width: 8em;
+    bottom: 100%;
+    left: 50%; 
+    margin-left: -4em; /* Use half of the width (120/2 = 60), to center the tooltip */
+    margin-bottom: 0.2em;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 0.5em;
+    border-radius: 0.5em;
+ 
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+.tooltip .tooltipText::after {
+    content: " ";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -0.8em;
+    border-width: 0.4em;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltipText {
+    visibility: visible;
+}

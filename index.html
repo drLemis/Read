@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<title>MyTales</title>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/styleTextColors.css" />
+    <link rel="stylesheet" href="css/styleTextBody.css" />
+    <link rel="stylesheet" href="css/styleTextInfo.css" />
+</head>
+
+<body style="overflow-x: hidden;">
+    <div id="main">
+        <a href="#" onclick="changeCSS('css/styleTextColors.css', 0);">STYLE 1</a>
+        <a href="#" onclick="changeCSS('css/styleTextColorsWhite.css', 0);">STYLE 2</a>
+
+        <div>
+            <center>
+                <div class="textHeader">
+                    <label class="textTitle">Lorem ipsum dolor sit amet</label>
+                </div>
+            </center>
+        </div>
+        <hr>
+        <div class="textInfo">
+            <div class="textInfoStatus">
+                <div>
+                    <b>Масштаб: </b><label id="size">30 страниц, 40000 слов, запланировано ультрамакси</label>
+                </div>
+            </div>
+            <br>
+            <div class="textInfoAnnotation">
+                Curabitur ipsum diam, congue id velit at, interdum tristique justo. Pellentesque habitant morbi
+                tristique senectus
+                et netus et malesuada fames ac turpis egestas. Aliquam nec risus tortor. Vivamus ultricies mi nec odio
+                auctor
+                varius. Proin in metus arcu. Etiam dignissim at arcu in placerat. Quisque tincidunt sapien eu lorem
+                euismod
+                hendrerit. Nam porttitor tempus velit, ut pharetra purus gravida non. Mauris ipsum nisi, consectetur sit
+                amet
+                pharetra vel, semper non risus.
+            </div>
+            <br>
+        </div>
+        <hr style="margin-bottom:20px">
+        <div class="textBodyHeader">
+            <button class="textBodyHeaderNav" style="float:left;">
+                <label class="textBodyHeaderNavLabel">◄</label>
+            </button>
+            <div class="textBodyHeaderMain">
+                <label class="textBodyHeaderDate">1970.01.01</label>
+                <br>
+                <label class="textBodyHeaderName">1. Глава, в которой разрешается не любить Толстого и не понимать
+                    Диккенса</label>
+            </div>
+            <button class="textBodyHeaderNav" style="float:right;">
+                <label class="textBodyHeaderNavLabel">►</label>
+            </button>
+        </div>
+        <div class="textBodyText">
+        </div>
+        <div class="textBodyHeader">
+            <button class="textBodyHeaderNav" style="float:left;">
+                <label class="textBodyHeaderNavLabel">◄</label>
+            </button>
+            <div class="textBodyHeaderMain" />
+            <button class="textBodyHeaderNav" style="float:right;">
+                <label class="textBodyHeaderNavLabel">►</label>
+            </button>
+        </div>
+    </div>
+</body>
+
+<script>
+    function changeCSS(cssFile, cssLinkIndex) {
+
+        var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
+
+        var newlink = document.createElement("link");
+        newlink.setAttribute("rel", "stylesheet");
+        newlink.setAttribute("type", "text/css");
+        newlink.setAttribute("href", cssFile);
+
+        document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+    }
+
+    var blob = null;
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "text/part1.html");
+    xhr.responseType = "blob"; //force the HTTP response, response-type header to be blob
+    xhr.onload = function () {
+        blob = xhr.response; //xhr.response is now a blob object
+    }
+    xhr.send();
+
+    var myReader = new FileReader();
+    myReader.addEventListener("loadend", function (e) {
+        document.getElementsByClassName("textBodyText")[0].innerHTML = e.srcElement.result;
+    });
+    myReader.readAsText(blob);
+
+</script>
+
+</html>
