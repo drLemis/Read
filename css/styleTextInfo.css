@@ -36,3 +36,13 @@ hr {
     vertical-align: middle;
     color: #858087;
 }
+
+.indexText {
+    cursor: pointer;
+}
+
+.indexText:hover {
+    cursor: pointer;    
+    color: #FFFFFF;
+    mix-blend-mode: exclusion;
+}

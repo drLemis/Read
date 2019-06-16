@@ -12,6 +12,7 @@ body {
     font-family: "Helvetica Neue Cyr Medium";
     background: #E8E5E7;
     transition: 0.25s;
+    text-size-adjust: 100%;
 }
 
 button {
@@ -32,10 +33,6 @@ sup {
 .textBodyHeaderMain {
     flex: 40;
     display: block;
-}
-
-.textBodyHeaderDate {
-    font-size: 75%;
 }
 
 .textBodyHeaderName {

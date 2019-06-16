@@ -29,10 +29,9 @@ function getPartList() {
                             var eOnClick = "onclick=\"changePartTo('" + partList[partList.length - 1][0] + "')\"";
                             var eText = partList[partList.length - 1][1];
 
-                            result += "<li " + eOnClick + " > " + eText + " </li>"
-                        } else if (part.includes("#")){
+                            result += "<li " + eOnClick + " class='indexText'>" + eText + " </li>"
+                        } else if (part.includes("#")) {
                             var params = part.split("#");
-                            console.log(params)
 
                             var eStyle = "";
 

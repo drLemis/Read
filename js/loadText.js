@@ -48,7 +48,10 @@ function changePartTo(partName) {
     }
 
     partList.forEach(part => {
-        if (part[0] == partName)
+        if (part[0] == partName) {
+            partIndex = 0;
             changePart(partList.indexOf(part))
+            return;
+        }
     });
 }
