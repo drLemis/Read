@@ -8,6 +8,16 @@
     font-style: normal;
 }
 
+body {
+    font-family: "Helvetica Neue Cyr Medium";
+    background: #E8E5E7;
+    transition: 0.25s;
+}
+
+button {
+    font-family: "Helvetica Neue Cyr Medium";
+}
+
 sup {
     cursor: help;
     color:blue;

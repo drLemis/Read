@@ -1,14 +1,4 @@
 
-body {
-    font-family: "Helvetica Neue Cyr Medium";
-    background: #E8E5E7;
-    transition: 0.25s;
-}
-
-button {
-    font-family: "Helvetica Neue Cyr Medium";
-}
-
 #main {
     transition: margin-left .25s;
     padding-left: 3em;
@@ -18,20 +8,6 @@ button {
     min-width: 32em;
     color: #000000;
     transition: 0.25s;
-}
-
-.nowrap {
-    white-space: nowrap;
-    display: inline;
-}
-
-.noselect {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
 .textTitle {
