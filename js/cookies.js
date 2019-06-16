@@ -1,5 +1,5 @@
 function setCookie(name, value) {
-    document.cookie = name + "=" + value;
+    document.cookie = name + "=" + value + "; expires=Fri, 31 Dec 9999 23:59:59 GMT";
 }
 
 function getCookie(name) {

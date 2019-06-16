@@ -7,7 +7,7 @@ function changePart(partDelta) {
     if (!partDelta)
         partDelta = 0;
 
-    partIndex += parseInt(partDelta, 10);
+    partIndex = Number(partIndex) + Number(partDelta);
 
     if (partIndex < 0)
         partIndex = 0;
