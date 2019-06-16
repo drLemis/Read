@@ -13,6 +13,7 @@ body {
     background: #E8E5E7;
     transition: 0.25s;
     text-size-adjust: 100%;
+    tab-size: 4;
 }
 
 button {
