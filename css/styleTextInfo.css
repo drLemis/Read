@@ -2,6 +2,7 @@
 body {
     font-family: "Helvetica Neue Cyr Medium";
     background: #E8E5E7;
+    transition: 0.25s;
 }
 
 button {
@@ -16,6 +17,7 @@ button {
     padding-top: 0;
     min-width: 32em;
     color: #000000;
+    transition: 0.25s;
 }
 
 .nowrap {

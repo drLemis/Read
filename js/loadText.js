@@ -12,7 +12,7 @@ function changePart(partDeta) {
         partIndex = partList.length - 1;
 
     var partIndexNew = partIndex;
-    var partStyleNew = partStyle;
+    var partStyleNew = "";
 
     //Точная ссылка на главу
     if (partList[partIndex] && partList[partIndex].length > 1)
@@ -28,14 +28,13 @@ function changePart(partDeta) {
                 document.getElementsByClassName("textBodyText")[0].innerHTML = text;
                 document.getElementsByClassName("textBodyHeaderName")[0].innerHTML = partList[partIndex][0];
 
-                if (partStyleNew != "" && partStyleNew != partStyle)
+                if (partStyleNew != partStyle)
                     changeStyle(partStyleNew);
             });
         });
 }
 
 function getPartList() {
-    console.log(1)
     fetch("https://raw.githubusercontent.com/drLemis/Read/master/text/partList.txt")
         .then(function (response) {
             response.text().then(function (text) {
@@ -45,6 +44,7 @@ function getPartList() {
                 });
 
                 changePart(0);
+                changeStyle("");
             });
         });
 }
@@ -55,6 +55,8 @@ function changeStyle(name) {
     newlink.setAttribute("rel", "stylesheet");
     newlink.setAttribute("type", "text/css");
     newlink.setAttribute("href", "css/styleTextColors" + name + ".css");
-    
+
     document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+
+    partStyle = name;
 }
