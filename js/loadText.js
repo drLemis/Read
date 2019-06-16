@@ -6,6 +6,8 @@ function changePart(partDeta)
 {
     partIndex += partDeta;
 
+    console.log(partList)
+
     if (partIndex < 0)
         partIndex = 0;
     else if (partIndex > [partList.length - 1])
@@ -13,7 +15,7 @@ function changePart(partDeta)
 
     var partIndexVar = partIndex;
 
-    if (partList[partIndex].length > 1)
+    if (partList[partIndex] && partList[partIndex].length > 1)
         partIndexVar = partList[partIndex][1];
 
     fetch("https://raw.githubusercontent.com/drLemis/Read/master/text/" + partIndexVar)
@@ -35,6 +37,8 @@ function getPartList()
             parts.forEach(part => {
                 partList.push(part.split("@"));
             }); 
+
+            changePart(0);
         });
     });
 }
