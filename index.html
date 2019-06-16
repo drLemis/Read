@@ -4,16 +4,16 @@
 
 <head>
     <meta charset="UTF-8">
+
+    <!-- COLORS ALWAYS FIRST -->
     <link rel="stylesheet" href="css/styleTextColors.css" />
+
     <link rel="stylesheet" href="css/styleTextBody.css" />
     <link rel="stylesheet" href="css/styleTextInfo.css" />
 </head>
 
 <body style="overflow-x: hidden;">
     <div id="main">
-        <a href="#" onclick="changeCSS('css/styleTextColors.css', 0);">STYLE 1</a>
-        <a href="#" onclick="changeCSS('css/styleTextColorsWhite.css', 0);">STYLE 2</a>
-
         <div>
             <center>
                 <div class="textHeader">
@@ -74,18 +74,6 @@
 <script src="js/loadText.js "></script>
 
 <script>
-    function changeCSS(cssFile, cssLinkIndex) {
-
-        var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
-
-        var newlink = document.createElement("link");
-        newlink.setAttribute("rel", "stylesheet");
-        newlink.setAttribute("type", "text/css");
-        newlink.setAttribute("href", cssFile);
-
-        document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
-    }
-    
     getPartList();
 </script>
 

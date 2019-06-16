@@ -7,7 +7,7 @@ body {
 }
 
 hr {
-    border-color:#424756;
+    border-color:#C34A36;
 }
 
 sup {
@@ -15,13 +15,13 @@ sup {
 }
 
 .textBodyHeaderNav {
-    color: #424756;
+    color: #C34A36;
     background-color: #BCB3B4;
 }
 
 .textBodyHeaderNav:hover {
     color: #BCB3B4;
-    background-color: #424756
+    background-color: #C34A36
 }
 
 .textInfoAnnotation {
