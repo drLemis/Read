@@ -4,7 +4,10 @@ var partStyle = "";
 var partList = [];
 
 function changePart(partDelta) {
-    partIndex += partDelta;
+    if (!partDelta)
+        partDelta = 0;
+
+    partIndex += parseInt(partDelta, 10);
 
     if (partIndex < 0)
         partIndex = 0;
@@ -26,7 +29,7 @@ function changePart(partDelta) {
         fetch("https://raw.githubusercontent.com/drLemis/Read/master/text/" + partIndexNew + ".html")
             .then(function (response) {
                 response.text().then(function (text) {
-                    document.getElementsByClassName("textBodyText")[0].innerHTML = text;    
+                    document.getElementsByClassName("textBodyText")[0].innerHTML = text;
                     document.getElementsByClassName("textBodyHeaderName")[0].innerHTML = partList[partIndex][1];
 
                     if (partStyleNew != partStyle)
