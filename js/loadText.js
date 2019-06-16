@@ -23,7 +23,7 @@ function changePart(partDelta) {
         if (partList[partIndex].length > 2)
             partStyleNew = partList[partIndex][2];
 
-        fetch("https://raw.githubusercontent.com/drLemis/Read/master/text/" + partIndexNew + ".html")
+        fetch("https://raw.githubusercontent.com/drLemis/Read/master/text/" + partIndexNew)
             .then(function (response) {
                 response.text().then(function (text) {
                     var i = 0;

@@ -4,7 +4,7 @@ var partStyle = "";
 var partList = [];
 
 function getPartList() {
-    fetch("https://raw.githubusercontent.com/drLemis/Read/master/text/partList.txt")
+    fetch("https://raw.githubusercontent.com/drLemis/Read/master/text/partList")
         .then(function (response) {
             response.text().then(function (text) {
                 var parts = text.split("\n");
