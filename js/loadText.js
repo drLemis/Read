@@ -4,9 +4,11 @@ function changePart(partDelta) {
 
     partIndex = Number(partIndex) + Number(partDelta);
 
-    if (partIndex < 0)
+    if (partIndex < 0) {
         partIndex = 0;
-    else if (partIndex > [partList.length - 1])
+        loadIndex();
+        return;
+    } else if (partIndex > [partList.length - 1])
         partIndex = partList.length - 1;
 
     if (partList[partIndex]) {
@@ -31,7 +33,22 @@ function changePart(partDelta) {
                         changeStyle(partStyleNew);
 
                     setCookie("lastPart", partIndex);
+
+                    document.getElementById("index").setAttribute("hidden", "true");
+                    document.getElementById("main").removeAttribute("hidden");
                 });
             });
     }
+}
+
+function changePartTo(partName) {
+    if (!partName) {
+        loadIndex();
+        return;
+    }
+
+    partList.forEach(part => {
+        if (part[0] == partName)
+            changePart(partList.indexOf(part))
+    });
 }

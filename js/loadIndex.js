@@ -11,32 +11,52 @@ function getPartList() {
 
                 var indexList = document.getElementsByClassName("indexList")[0];
 
+                var result = "";
+
                 parts.forEach(part => {
-                    if (!part.includes("@")) {
-                        if (indexList.length > 0)
-                            indexList.innerHTML += "</ul>" + part + "<ul>"
-                        else
-                            indexList.innerHTML += part + "<ul>"
-                    } else {
+                    if (part != "") {
+                        if (part.includes("@")) {
+                            partList.push(part.split("@"));
 
-                        partList.push(part.split("@"));
+                            if (partList.length > 1 && partList[partList.length - 1].length < 2)
+                                partList[partList.length - 1].push("");
 
-                        if (partList.length > 1 && partList[partList.length - 1].length < 2)
-                            partList[partList.length - 1].push("");
+                            if (partList.length > 1 && partList[partList.length - 1].length < 3)
+                                partList[partList.length - 1].push(partList[partList.length - 2][2]);
+                            else if (partList[partList.length - 1].length < 3)
+                                partList[partList.length - 1].push("");
 
-                        if (partList.length > 1 && partList[partList.length - 1].length < 3)
-                            partList[partList.length - 1].push(partList[partList.length - 2][2]);
-                        else if (partList[partList.length - 1].length < 3)
-                            partList[partList.length - 1].push("");
+                            var eOnClick = "onclick=\"changePartTo('" + partList[partList.length - 1][0] + "')\"";
+                            var eText = partList[partList.length - 1][1];
 
-                        indexList.innerHTML += "<li>" + partList[partList.length - 1][1] + "</li>"
+                            result += "<li " + eOnClick + " > " + eText + " </li>"
+                        } else {
+                            var params = part.split("#");
+
+                            var eStyle = "";
+
+                            if (params.length > 1) {
+                                var eColorBack = "#" + params[0]
+                                var eColorText = "#" + params[1]
+                                eStyle = "style='background-color:" + eColorBack + ";color:" + eColorText + ";'"
+                            }
+
+                            if (partList.length > 0) {
+                                result += "</ul></div><div " + eStyle + ">" + part.trim() + "<ul>"
+                            } else {
+                                result += "<div " + eStyle + ">" + part.trim() + "<ul>"
+                            }
+                        }
                     }
                 });
 
-                indexList.innerHTML += "</ul>"
+                indexList.innerHTML = result + "</ul></div>"
 
-                changePart(getCookie("lastPart"));
-                changeStyle("");
+                if (getCookie("lastPart")) {
+                    changePart(getCookie("lastPart"));
+                } else {
+                    loadIndex();
+                }
             });
         });
 }
@@ -51,4 +71,11 @@ function changeStyle(name) {
     document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
 
     partStyle = name;
+}
+
+function loadIndex() {
+    changeStyle("");
+
+    document.getElementById("main").setAttribute("hidden", "true");
+    document.getElementById("index").removeAttribute("hidden");
 }
