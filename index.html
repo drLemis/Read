@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-<title>MyTales</title>
+<title>Read</title>
 
 <head>
     <meta charset="UTF-8">
 
-    <!-- COLORS ALWAYS FIRST -->
-    <link rel="stylesheet" href="css/styleTextColors.css" />
-
     <link rel="stylesheet" href="css/styleTextBody.css" />
     <link rel="stylesheet" href="css/styleTextInfo.css" />
+
+    <!-- COLORS ALWAYS THIRD -->
+    <link rel="stylesheet" href="css/styleTextColors.css" />
 </head>
 
-<body style="overflow-x: hidden;">
+<body style="overflow-x: hidden;" onload="getPartList()">
     <div id="main">
         <div>
             <center>
@@ -50,8 +50,7 @@
             <div class="textBodyHeaderMain">
                 <label class="textBodyHeaderDate">1970.01.01</label>
                 <br>
-                <label class="textBodyHeaderName">1. Глава, в которой разрешается не любить Толстого и не понимать
-                    Диккенса</label>
+                <label class="textBodyHeaderName"></label>
             </div>
             <button class="textBodyHeaderNav" onclick="changePart(1)" style="float:right;">
                 <label class="textBodyHeaderNavLabel">►</label>
@@ -72,9 +71,5 @@
 </body>
 
 <script src="js/loadText.js "></script>
-
-<script>
-    getPartList();
-</script>
 
 </html>

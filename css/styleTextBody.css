@@ -10,6 +10,7 @@
 
 sup {
     cursor: help;
+    color:blue;
 }
 
 .textBodyHeader {
@@ -45,6 +46,13 @@ sup {
     transition: 0.25s;
     overflow-wrap: break-word;
     vertical-align: middle;
+    color: #424756;
+    background-color: #BCB3B4;
+}
+
+.textBodyHeaderNav:hover {
+    color: #BCB3B4;
+    background-color: #424756
 }
 
 .textBodyHeaderNavLabel {
