@@ -1,42 +1,6 @@
-#main {
-    color: #222222;
-}
-
-body {
-    background: #E8E5E7;
-}
-
-hr {
-    border-color:#C34A36;
-}
-
-sup {
-    color:#0000FF;
-}
-
-.tooltip {
-    border-color: #0000FF;
-}
-
-.tooltip .tooltipText {
-    background-color: #030303;
-    color: #E8E5E7;
-}
-
-.tooltip .tooltipText::after {
-    border-color: #030303 transparent transparent transparent;
-}
-
-.textBodyHeaderNav {
-    color: #E8E5E7;
-    background-color: #74777E ;
-}
-
-.textBodyHeaderNav:hover {
-    color: #E8E5E7;
-    background-color: #C34A36
-}
-
-.textInfoAnnotation {
-    color: #858087;
+:root {
+    --chapter-color: #C34A36;
+    --text-color: #222222;
+    --sub-color: #74777E;
+    --bg-color: #E8E5E7;
 }

@@ -6,7 +6,7 @@
     padding-bottom: 3em;
     padding-top: 0;
     min-width: 32em;
-    color: #000000;
+    color: var(--text-color);
     transition: 0.25s;
 }
 
@@ -24,7 +24,7 @@
 
 hr {
     border: 0.03em solid;
-    border-color:#424756;
+    border-color:var(--chapter-color);
 }
 
 .textInfoAnnotation {
@@ -34,7 +34,7 @@ hr {
     display: inline-block;
     overflow-wrap: break-word;
     vertical-align: middle;
-    color: #858087;
+    color: var(--sub-color);
 }
 
 .indexText {
@@ -43,6 +43,6 @@ hr {
 
 .indexText:hover {
     cursor: pointer;    
-    color: #FFFFFF;
+    color: #FFFFFF; /* the one and only true color */
     mix-blend-mode: exclusion;
 }

@@ -8,9 +8,20 @@
     font-style: normal;
 }
 
+:root {
+    --chapter-color: #0000FF;
+    --text-color: #222222;
+    --sub-color: #74777E;
+    --bg-color: #F3DECD;
+}
+
+a {
+    color:var(--chapter-color);
+}
+
 body {
     font-family: "Helvetica Neue Cyr Medium";
-    background: #E8E5E7;
+    background: var(--bg-color);
     transition: 0.25s;
     text-size-adjust: 100%;
     tab-size: 4;
@@ -22,7 +33,7 @@ button {
 
 sup {
     cursor: help;
-    color:blue;
+    color:var(--chapter-color);
 }
 
 .textBodyHeader {
@@ -54,13 +65,13 @@ sup {
     transition: 0.25s;
     overflow-wrap: break-word;
     vertical-align: middle;
-    color: #424756;
-    background-color: #BCB3B4;
+    color: var(--bg-color);
+    background-color: var(--sub-color) ;
 }
 
 .textBodyHeaderNav:hover {
-    color: #BCB3B4;
-    background-color: #424756
+    color: var(--bg-color);
+    background-color: var(--chapter-color)
 }
 
 .textBodyHeaderNavLabel {
@@ -80,8 +91,8 @@ sup {
 .tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 0.05em dotted; /* If you want dots under the hoverable text */
-    border-color: black;
+    border-bottom: 0.05em dotted;
+    border-color: var(--chapter-color);
 }
 
 /* Tooltip text */
@@ -90,30 +101,28 @@ sup {
     width: 8em;
     bottom: 100%;
     left: 50%; 
-    margin-left: -4em; /* Use half of the width (120/2 = 60), to center the tooltip */
+    margin-left: -4em;
     margin-bottom: 0.2em;
-    background-color: black;
-    color: #fff;
+    background-color: var(--text-color);
+    color: var(--bg-color);
     text-align: center;
     padding: 0.5em;
     border-radius: 0.5em;
  
-    /* Position the tooltip text - see examples below! */
     position: absolute;
     z-index: 1;
 }
 .tooltip .tooltipText::after {
     content: " ";
     position: absolute;
-    top: 100%; /* At the bottom of the tooltip */
+    top: 100%;
     left: 50%;
     margin-left: -0.8em;
     border-width: 0.4em;
     border-style: solid;
-    border-color: black transparent transparent transparent;
+    border-color: var(--text-color) transparent transparent transparent;
 }
 
-/* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltipText {
     visibility: visible;
 }

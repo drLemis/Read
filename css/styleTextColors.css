@@ -1,42 +1,6 @@
-#main {
-    color: #222222;
-}
-
-body {
-    background: #F3DECD;
-}
-
-hr {
-    border-color:#603F89;
-}
-
-sup {
-    color:#0000FF;
-}
-
-.tooltip {
-    border-color: #0000FF;
-}
-
-.tooltip .tooltipText {
-    background-color: #030303;
-    color: #F3DECD;
-}
-
-.tooltip .tooltipText::after {
-    border-color: #030303 transparent transparent transparent;
-}
-
-.textBodyHeaderNav {
-    color: #F3DECD ;
-    background-color: #74777E ;
-}
-
-.textBodyHeaderNav:hover {
-    color: #F3DECD;
-    background-color: #603F89
-}
-
-.textInfoAnnotation {
-    color: #74777E;
+:root {
+    --chapter-color: #0000FF;
+    --text-color: #222222;
+    --sub-color: #74777E;
+    --bg-color: #F3DECD;
 }
