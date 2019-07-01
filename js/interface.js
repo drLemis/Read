@@ -1,4 +1,4 @@
-window.onload = checkboxesCheckSet(), inputValueSet(), getPartList(), getLastNews(), marginsPercentSet();
+window.onload = checkboxesCheckSet(), tabSizeSet(), getPartList(), getLastNews(), marginsPercentSet(), fontPercentSet();
 
 function checkboxesCheckSet() {
     var array = document.getElementsByName("checkbox");
@@ -9,7 +9,7 @@ function checkboxesCheckSet() {
     });
 }
 
-function inputValueSet() {
+function tabSizeSet() {
     var array = document.getElementsByName("tabSize");
 
     array.forEach(element => {
@@ -30,6 +30,18 @@ function marginsPercentSet() {
             element.value = cookie;
             document.getElementsByClassName("textBodyText")[0].style.marginLeft = cookie + "%";
             document.getElementsByClassName("textBodyText")[0].style.marginRight = cookie + "%";
+        }
+    });
+}
+
+function fontPercentSet() {
+    var array = document.getElementsByName("fontPercent");
+
+    array.forEach(element => {
+        var cookie = getCookie(element.name);
+        if (cookie != null) {
+            element.value = cookie;
+            document.body.style.fontSize = cookie + "%";
         }
     });
 }
