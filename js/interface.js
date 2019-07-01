@@ -1,4 +1,4 @@
-window.onload = checkboxesCheckSet(), inputValueSet(), getPartList(), getLastNews();
+window.onload = checkboxesCheckSet(), inputValueSet(), getPartList(), getLastNews(), marginsPercentSet();
 
 function checkboxesCheckSet() {
     var array = document.getElementsByName("checkbox");
