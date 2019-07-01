@@ -82,7 +82,7 @@ function parseAdditions(text) {
 
     text = text.split("\n");
 
-    if (getCookie("newlineSingle") != true && getCookie("newlineSingle") != "true") {
+    if (getCookie("newlineSingle") == false || getCookie("newlineSingle") == null || getCookie("newlineSingle") == "false" ) {
         text = text.join("\n\n\t");
     } else {
         text = text.join("\n\t");
