@@ -85,6 +85,8 @@ sup {
 .textBodyText {
     white-space: pre-wrap;
     padding: 50px 0; 
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 /* Tooltip container */

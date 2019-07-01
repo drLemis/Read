@@ -21,6 +21,19 @@ function inputValueSet() {
     });
 }
 
+function marginsPercentSet() {
+    var array = document.getElementsByName("marginsPercent");
+
+    array.forEach(element => {
+        var cookie = getCookie(element.name);
+        if (cookie != null) {
+            element.value = cookie;
+            document.getElementsByClassName("textBodyText")[0].style.marginLeft = cookie + "%";
+            document.getElementsByClassName("textBodyText")[0].style.marginRight = cookie + "%";
+        }
+    });
+}
+
 function getLastNews() {
     fetch("https://api.github.com/repos/drLemis/Read/commits?page=1&per_page=5")
         .then(function (response) {
