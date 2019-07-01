@@ -26,10 +26,8 @@ function changePart(partDelta) {
         fetch("https://raw.githubusercontent.com/drLemis/Read/master/text/" + partIndexNew)
             .then(function (response) {
                 response.text().then(function (text) {
-                    var i = 0;
-                    var result = text.replace(/(\[(.+?)\])/g, function(a, b, c) { return '<sup class="tooltip">'+(++i)+'<span class="tooltipText">'+ c +'</span></sup>'; });
 
-                    document.getElementsByClassName("textBodyText")[0].innerHTML = "\t"+result.split("\n").join("\n\t");
+                    document.getElementsByClassName("textBodyText")[0].innerHTML = "\t" + parseAdditions(text);
                     document.getElementsByClassName("textBodyHeaderName")[0].innerHTML = partList[partIndex][1];
 
                     if (partStyleNew != partStyle)
@@ -57,4 +55,65 @@ function changePartTo(partName) {
             return;
         }
     });
+}
+
+function parseAdditions(text) {
+    var i = 0;
+
+    // footnote
+    text = text.replace(/(\[(footnote|tooltip|f):(.+?)\])/g, function (a, b, c, d) {
+        return '<sup class="tooltip">' + (++i) + '<span class="tooltipText">' + d + '</span></sup>';
+    });
+
+    //bold
+    text = text.replace(/(\[(bold|b|strong):(.+?)\])/g, function (a, b, c, d) {
+        return '<strong>' + d + '</strong>';
+    });
+
+    // italic
+    text = text.replace(/(\[(italic|i|em):(.+?)\])/g, function (a, b, c, d) {
+        return '<em>' + d + '</em>';
+    });
+
+    // link
+    text = text.replace(/(\[link:(.+?)\|(.+?)\])/g, function (a, b, c, d) {
+        return '<a href=\"' + c + '\" title=\"' + c + '\">' + d + '</a>';
+    });
+
+    return text.split("\n").join("\n\n\t");
+}
+
+// ========
+
+// for local use only
+function readSingleFile(e) {
+
+    var file = e.target.files[0];
+    if (!file) {
+        return;
+    }
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        document.getElementsByClassName("textBodyText")[0].innerHTML = "\t" + parseAdditions(e.target.result);
+        document.getElementsByClassName("textBodyHeaderName")[0].innerHTML = "Текст с диска";
+
+        document.getElementById("index").setAttribute("hidden", "true");
+        document.getElementById("main").removeAttribute("hidden");
+    };
+    reader.readAsText(file);
+}
+
+// ALT+C to open local file
+document.onkeydown = function (e) {
+    if ((e.altKey && e.keyCode == 'C'.charCodeAt(0))) {
+        var input = document.createElement('input');
+        input.type = 'file';
+
+        input.onchange = e => {
+            readSingleFile(e);
+        };
+
+        input.click();
+        return false;
+    }
 }

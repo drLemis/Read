@@ -1,13 +1,13 @@
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum massa erat, porttitor ac euismod eu, imperdiet in turpis. Nunc vel lacus neque. Pellentesque commodo orci in mauris suscipit, a sodales nibh efficitur. Vivamus augue arcu, molestie id ornare id, vulputate in ipsum. Integer sodales sapien metus, id facilisis sem dapibus ac. Aenean ac sem a urna ornare bibendum a in mauris. Nullam rhoncus nisl dignissim aliquam hendrerit. Sed odio urna, posuere sit amet elit sed, commodo aliquam neque. Vivamus in ante vel risus lobortis tincidunt vitae vitae dui. Nulla facilisi.
 
-Donec a rutrum[rutrum] ex, et finibus nibh.
+Donec a rutrum[f:rutrum] ex, et finibus nibh.
  - Praesent porta turpis in massa dictum, at auctor dui tempus.
  - Aenean tincidunt malesuada quam sed placerat. Duis vel vehicula mauris.
- - Donec quis nunc vestibulum[non vestibulatorum], porta turpis ac, viverra massa.
+ - Donec quis nunc vestibulum[footnote:non [link:vestibulatorum.com|vestibulatorum]], porta turpis ac, viverra massa.
  
- Nunc ultrices consequat sem, sit amet mollis elit tristique eu. Duis scelerisque mattis maximus.
+ Nunc ultrices consequat sem, sit amet [link:mollis.com|mollis] elit tristique eu. Duis scelerisque mattis maximus.
  
- - Donec pretium consequat diam pellentesque condimentum, - Aliquam dictum, est in ultricies finibus, dui felis consequat mi, ac rutrum odio est quis nibh. - Nunc mi magna, vehicula vel nunc et, iaculis placerat ligula. Aliquam dignissim sit amet erat ut sollicitudin.
+ - Donec pretium consequat diam [b:pellentesque [i:condimentum]], - Aliquam dictum, est in ultricies finibus, dui felis consequat mi, ac rutrum odio est quis nibh. - Nunc mi magna, vehicula vel nunc et, iaculis placerat ligula. Aliquam dignissim sit amet erat ut sollicitudin.
  
 Donec nec purus sit amet risus malesuada laoreet sed vel orci. Nunc dapibus sed orci eu eleifend. Pellentesque laoreet ligula vitae lacus lobortis, quis varius nisl luctus.
 Integer et malesuada ipsum. Integer ultrices tempus velit id cursus.
