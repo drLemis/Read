@@ -80,7 +80,14 @@ function parseAdditions(text) {
         return '<a href=\"' + c + '\" title=\"' + c + '\">' + d + '</a>';
     });
 
-    return text.split("\n").join("\n\n\t");
+    text = text.split("\n");
+
+    if (getCookie("newlineDouble"))
+        text = text.join("\n\n\t");
+    else
+        text = text.join("\n\t");
+
+    return text;
 }
 
 // ========

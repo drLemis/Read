@@ -6,10 +6,10 @@
     <meta charset="UTF-8">
 
     <!-- Cache fix? -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
-    <meta http-equiv="Pragma" content="no-cache"/>
-    <meta http-equiv="Expires" content="0"/>
-    
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
     <link rel="stylesheet" href="css/styleTextBody.css" />
     <link rel="stylesheet" href="css/styleTextInfo.css" />
 
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/styleTextColors.css" />
 </head>
 
-<body style="overflow-x: hidden;" onload="getPartList()">
+<body style="overflow-x: hidden;">
     <div id="index" hidden="true">
         <div>
             <center>
@@ -40,6 +40,18 @@
                 pharetra vel, semper non risus.
             </div>
             <br>
+        </div>
+        <hr style="margin-bottom:20px">
+        <div>
+            <center>
+                <label><input type="checkbox" name="checkbox" value="newlineDouble"
+                        onclick="setCookie(this.value, this.checked);">Двойные переносы</label>
+                &emsp;&emsp;&emsp;&emsp;
+                <label>
+                    <input type="number" name="tabSize" min="1" max="15" value="4"
+                        onchange="setCookie(this.name, this.value);">
+                    Размер отступа</label>
+            </center>
         </div>
         <hr style="margin-bottom:20px">
         <div class="indexList">
@@ -80,5 +92,6 @@
 <script src="js/cookies.js "></script>
 <script src="js/loadText.js "></script>
 <script src="js/loadIndex.js "></script>
+<script src="js/interface.js "></script>
 
 </html>
