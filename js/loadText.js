@@ -85,6 +85,11 @@ function parseAdditions(text) {
         return '<center>' + d + '</center>';
     });
 
+    // hyphens
+    text = text.replace(/([\s])-([\s])/g, function (a, b, c, d) {
+        return b + "—" + c;
+    });
+
     text = text.split("\n");
 
     if (getCookie("newlineSingle") == false || getCookie("newlineSingle") == null || getCookie("newlineSingle") == "false" ) {
