@@ -80,6 +80,11 @@ function parseAdditions(text) {
         return '<a href=\"' + c + '\" title=\"' + c + '\">' + d + '</a>';
     });
 
+    // center
+    text = text.replace(/(\[(center|c):(.+?)\])/g, function (a, b, c, d) {
+        return '<center>' + d + '</center>';
+    });
+
     text = text.split("\n");
 
     if (getCookie("newlineSingle") == false || getCookie("newlineSingle") == null || getCookie("newlineSingle") == "false" ) {
