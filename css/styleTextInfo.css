@@ -16,9 +16,34 @@
     font-weight: bold;
 }
 
+#index:before {
+    background-image: url(../images/logo512.png);
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 30%;
+    width: 40%; 
+    height: 40%;  
+    opacity: .05; 
+    z-index: -1;
+    background-size: 100%;
+    background-position-y: 50%;
+    background-repeat: no-repeat;
+}
+
 .textInfo {
     padding-left: 1.2em;
     padding-right: 1.2em;
+}
+
+.lastNewsLabel {
+    margin-right: 0.6em;
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
+    display: inline-block;
+    overflow-wrap: break-word;
+    vertical-align: middle;
+    text-align: left;
 }
 
 hr {
