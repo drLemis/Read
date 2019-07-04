@@ -138,8 +138,26 @@ function getQuoteSymbol(quoteLevel, isOpening = true) {
 // ========
 
 // for local use only
-function readSingleFile(e) {
 
+// ALT+V to open local file
+// ALT+C to open from library
+document.onkeydown = function (e) {
+    if ((e.altKey && e.keyCode == 'V'.charCodeAt(0))) {
+        var input = document.createElement('input');
+        input.type = 'file';
+
+        input.onchange = e => {
+            readSingleFile(e);
+        };
+
+        input.click();
+        return false;
+    } else if ((e.altKey && e.keyCode == 'C'.charCodeAt(0))) {
+        changePartToURL(prompt('link to chapter', ""));
+    }
+}
+
+function readSingleFile(e) {
     var file = e.target.files[0];
     if (!file) {
         return;
@@ -155,17 +173,18 @@ function readSingleFile(e) {
     reader.readAsText(file);
 }
 
-// ALT+C to open local file
-document.onkeydown = function (e) {
-    if ((e.altKey && e.keyCode == 'C'.charCodeAt(0))) {
-        var input = document.createElement('input');
-        input.type = 'file';
+function changePartToURL(link) {
+    if (link) {
+        fetch("https://raw.githubusercontent.com/drLemis/Read/master/text/" + link)
+            .then(function (response) {
+                response.text().then(function (text) {
 
-        input.onchange = e => {
-            readSingleFile(e);
-        };
+                    document.getElementsByClassName("textBodyText")[0].innerHTML = "\t" + parseAdditions(text);
+                    document.getElementsByClassName("textBodyHeaderName")[0].innerHTML = partList[partIndex][1];
 
-        input.click();
-        return false;
+                    document.getElementById("index").setAttribute("hidden", "true");
+                    document.getElementById("main").removeAttribute("hidden");
+                });
+            });
     }
 }
