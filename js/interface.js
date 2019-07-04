@@ -1,4 +1,4 @@
-window.onload = checkboxesCheckSet(), tabSizeSet(), getPartList(), getLastNews(), marginsPercentSet(), fontPercentSet();
+window.onload = checkboxesCheckSet(), tabSizeSet(), getPartList(), getLastNews(), marginsPercentSet(), fontPercentSet(), fontSelectSet();
 
 function checkboxesCheckSet() {
     var array = document.getElementsByName("checkbox");
@@ -44,6 +44,17 @@ function fontPercentSet() {
             document.body.style.fontSize = cookie + "%";
         }
     });
+}
+
+function fontSelectSet() {
+    var array = document.getElementsByName("fontSelect");
+
+    var cookie = getCookie(array[0].name);
+    if (cookie != null) {
+        array[0].value = cookie;
+        document.documentElement.style
+            .setProperty('--font', cookie);
+    }
 }
 
 function getLastNews() {

@@ -65,6 +65,13 @@
                     <input type="number" name="marginsPercent" min="0" max="30" value="5" step="5"
                         onchange="setCookie(this.name, this.value), marginsPercentSet();">
                     % поля</label>
+                &emsp;&emsp;&emsp;
+                <select name="fontSelect" onchange="setCookie(this.name, this.value), fontSelectSet();">
+                    <option value="Verdana" style="font-family: Verdana" selected>Verdana</option>
+                    <option value="Helvetica" style="font-family: Helvetica">Helvetica</option>
+                    <option value="Georgia" style="font-family: Georgia">Georgia</option>
+                    <option value="Times New Roman" style="font-family: 'Times New Roman'">Times New Roman</option>
+                </select>
             </center>
         </div>
         <hr style="margin-bottom:20px">

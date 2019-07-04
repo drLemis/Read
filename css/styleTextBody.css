@@ -1,26 +1,18 @@
-@font-face {
-    font-family: 'Helvetica Neue Cyr Medium';
-    src: url('../font/HelveticaNeueCyr-Medium.eot');
-    src: url('../font/HelveticaNeueCyr-Medium.eot?#iefix') format('embedded-opentype'),
-        url('../font/HelveticaNeueCyr-Medium.woff') format('woff'),
-        url('../font/HelveticaNeueCyr-Medium.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
 :root {
     --chapter-color: #0000FF;
     --text-color: #222222;
     --sub-color: #74777E;
     --bg-color: #F3DECD;
+
+    --font: Verdana;
 }
 
 a {
-    color:var(--chapter-color);
+    color: var(--chapter-color);
 }
 
 body {
-    font-family: "Helvetica Neue Cyr Medium";
+    font-family: var(--font);
     background: var(--bg-color);
     transition: 0.25s;
     text-size-adjust: 100%;
@@ -28,12 +20,12 @@ body {
 }
 
 button {
-    font-family: "Helvetica Neue Cyr Medium";
+    font-family: var(--font);
 }
 
 sup {
     cursor: help;
-    color:var(--chapter-color);
+    color: var(--chapter-color);
 }
 
 .textBodyHeader {
@@ -66,7 +58,7 @@ sup {
     overflow-wrap: break-word;
     vertical-align: middle;
     color: var(--bg-color);
-    background-color: var(--sub-color) ;
+    background-color: var(--sub-color);
 }
 
 .textBodyHeaderNav:hover {
@@ -84,7 +76,7 @@ sup {
 
 .textBodyText {
     white-space: pre-wrap;
-    padding: 50px 0; 
+    padding: 50px 0;
     margin-left: 5%;
     margin-right: 5%;
 }
@@ -102,7 +94,7 @@ sup {
     visibility: hidden;
     width: 8em;
     bottom: 100%;
-    left: 50%; 
+    left: 50%;
     margin-left: -4em;
     margin-bottom: 0.2em;
     background-color: var(--text-color);
@@ -110,10 +102,11 @@ sup {
     text-align: center;
     padding: 0.5em;
     border-radius: 0.5em;
- 
+
     position: absolute;
     z-index: 1;
 }
+
 .tooltip .tooltipText::after {
     content: " ";
     position: absolute;
