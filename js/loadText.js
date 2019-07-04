@@ -86,18 +86,53 @@ function parseAdditions(text) {
     });
 
     // hyphens
-    text = text.replace(/([\s])-([\s])/g, function (a, b, c, d) {
-        return b + "—" + c;
+    text = text.replace(/(-{2,})/g, "—").replace(/(\s)?-(\s)/g, "$1—$2").replace(/(\s)-(\s)?/g, "$1—$2");
+
+    // quotes
+    var quoteLevel = 0;
+    var quotesArray = [];
+
+    var quotesAny = /(["‘’“”„«»‹›])/ig;
+    var quotesClose = /(\b|[\S])(["‘’“”„«»‹›])(\B)/ig;
+
+    while ((match = quotesAny.exec(text)) != null) {
+        quotesArray[match.index] = true;
+    }
+
+    while ((match = quotesClose.exec(text)) != null) {
+        quotesArray[match.index + 1] = false;
+    }
+
+    quotesArray.forEach(function callback(quote, index) {
+        if (!Object.keys(quote).length) { // !empty
+            quoteLevel += (quote ? 1 : 0);
+            text = replaceAt(text, index, getQuoteSymbol(quoteLevel, quote));
+            quoteLevel -= (!quote ? 1 : 0);
+        }
     });
 
+    // final
     text = text.split("\n");
 
-    if (getCookie("newlineSingle") == false || getCookie("newlineSingle") == null || getCookie("newlineSingle") == "false" ) {
+    if (getCookie("newlineSingle") == false || getCookie("newlineSingle") == null || getCookie("newlineSingle") == "false") {
         text = text.join("\n\n\t");
     } else {
         text = text.join("\n\t");
     }
     return text;
+}
+
+function replaceAt(str, index, chr) {
+    if (index > str.length - 1) return str;
+    return str.substr(0, index) + chr + str.substr(index + 1);
+}
+
+function getQuoteSymbol(quoteLevel, isOpening = true) {
+    if (isOpening) {
+        return (quoteLevel & 1) ? "«" : "“"
+    } else {
+        return (quoteLevel & 1) ? "»" : "”"
+    }
 }
 
 // ========
