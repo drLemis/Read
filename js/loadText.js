@@ -37,6 +37,8 @@ function changePart(partDelta) {
 
                     document.getElementById("index").setAttribute("hidden", "true");
                     document.getElementById("main").removeAttribute("hidden");
+
+                    window.scrollTo(0, 0);
                 });
             });
     }
