@@ -63,54 +63,28 @@ function parseAdditions(text) {
     var i = 0;
 
     // footnote
-    text = text.replace(/(\[(footnote|tooltip|f):(.+?)\])/g, function (a, b, c, d) {
+    text = text.replace(/(\[(footnote|tooltip|f):([\s\S]+?)\])/g, function (a, b, c, d) {
         return '<sup class="tooltip">' + (++i) + '<span class="tooltipText">' + d + '</span></sup>';
     });
 
     //bold
-    text = text.replace(/(\[(bold|b|strong):(.+?)\])/g, function (a, b, c, d) {
+    text = text.replace(/(\[(bold|b|strong):([\s\S]+?)\])/g, function (a, b, c, d) {
         return '<strong>' + d + '</strong>';
     });
 
     // italic
-    text = text.replace(/(\[(italic|i|em):(.+?)\])/g, function (a, b, c, d) {
+    text = text.replace(/(\[(italic|i|em):([\s\S]+?)\])/g, function (a, b, c, d) {
         return '<em>' + d + '</em>';
     });
 
     // link
-    text = text.replace(/(\[link:(.+?)\|(.+?)\])/g, function (a, b, c, d) {
+    text = text.replace(/(\[link:([\s\S]+?)\|([\s\S]+?)\])/g, function (a, b, c, d) {
         return '<a href=\"' + c + '\" title=\"' + c + '\">' + d + '</a>';
     });
 
     // center
-    text = text.replace(/(\[(center|c):(.+?)\])/g, function (a, b, c, d) {
+    text = text.replace(/(\[(center|c):([\s\S]+?)\])/g, function (a, b, c, d) {
         return '<center>' + d + '</center>';
-    });
-
-    // hyphens
-    text = text.replace(/(-{2,})/g, "—").replace(/(\s)?-(\s)/g, "$1—$2").replace(/(\s)-(\s)?/g, "$1—$2");
-
-    // quotes
-    var quoteLevel = 0;
-    var quotesArray = [];
-
-    var quotesAny = /(["‘’“”„«»‹›])/ig;
-    var quotesClose = /(\b|[\S])(["‘’“”„«»‹›])(\B)/ig;
-
-    while ((match = quotesAny.exec(text)) != null) {
-        quotesArray[match.index] = true;
-    }
-
-    while ((match = quotesClose.exec(text)) != null) {
-        quotesArray[match.index + 1] = false;
-    }
-
-    quotesArray.forEach(function callback(quote, index) {
-        if (!Object.keys(quote).length) { // !empty
-            quoteLevel += (quote ? 1 : 0);
-            text = replaceAt(text, index, getQuoteSymbol(quoteLevel, quote));
-            quoteLevel -= (!quote ? 1 : 0);
-        }
     });
 
     // final
